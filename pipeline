@@ -3,6 +3,7 @@ pipeline{
     stages{
         stage('create directry-1'){
             steps{
+               sh 'rm -rf cloudseals'
                sh 'mkdir cloudseals'
                
                 
