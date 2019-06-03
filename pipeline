@@ -3,8 +3,8 @@ pipeline{
     stages{
         stage('create directry-1'){
             steps{
-               sh 'rm -rf cloudseals'
-               sh 'mkdir cloudseals'
+               
+               sh 'mkdir cloudseals-1'
                
                 
             } 
@@ -12,18 +12,18 @@ pipeline{
         }
         stage('copy playbook'){
             steps{
-               sh 'cp /home/jenkins/playbook.yml /home/jenkins/workspace/job-5/cloudseals'
+               sh 'cp /home/jenkins/playbook.yml /home/jenkins/workspace/job-5/cloudseals-1'
             }
         }
         stage ('chande folder'){
             steps{
-                sh 'cd /home/jenkins/workspace/job-5/cloudseals'
+                sh 'cd /home/jenkins/workspace/job-5/cloudseals-1'
                 
             }
         }
         stage ('deploy playbook'){
             steps{
-                sh 'ansible-playbook /home/jenkins/workspace/job-5/cloudseals/playbook.yml ' 
+                sh 'ansible-playbook /home/jenkins/workspace/job-5/cloudseals-1/playbook.yml ' 
                 }
         }
     }    
