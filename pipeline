@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    stages{
+        stage('create directry-1'){
+            steps{
+               sh 'mkdir cloudseals'
+               
+                
+            } 
+            
+        }
+        stage('copy playbook'){
+            steps{
+               sh 'cp /home/jenkins/playbook.yml /home/jenkins/workspace/job-5/cloudseals'
+            }
+        }
+        stage ('chande folder'){
+            steps{
+                sh 'cd /home/jenkins/workspace/job-5/cloudseals'
+                
+            }
+        }
+        stage ('deploy playbook'){
+            steps{
+                sh 'ansible-playbook /home/jenkins/workspace/job-5/cloudseals/playbook.yml ' 
+                }
+        }
+    }    
+        
+}
